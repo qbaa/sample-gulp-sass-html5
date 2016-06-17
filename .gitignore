@@ -2,3 +2,9 @@
 .sass-cache
 node_modules
 bower_components
+build/img/
+build/sass/
+build/js/*.js
+build/fonts/
+build/css/
+build/css/maps/
