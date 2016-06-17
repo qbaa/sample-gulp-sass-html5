@@ -41,7 +41,7 @@ var config = {
 gulp.task('css', function () {
     return gulp.src('src/sass/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass())
         .on("error", notify.onError(function (error) {
             return "Error: " + error.message;
         }))
