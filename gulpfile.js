@@ -1,19 +1,20 @@
-//npm install --save-dev gulp gulp-sass gulp-autoprefixer browser-sync gulp-notify gulp-uglify gulp-jshint gulp-header gulp-rename gulp-cssnano gulp-tinypng gulp-sourcemaps
-
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    //powiadowmienia o błedach saas
+    //error notifications
     notify = require("gulp-notify"),
-    //dodanie prefixów dla przęgladarek
+    //adding prefixes CSS for browsers
     autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync'),
+    //minify JS
     uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint'),
     header = require('gulp-header'),
     rename = require('gulp-rename'),
+    //minify CSS 
     cssnano = require('gulp-cssnano'),
-    //optymalizacja grafiki(png i jp) poprzez portal tinypng.pl
+    //optimization of image files (https://tinypng.com/)
     tinypng = require('gulp-tinypng'),
+    //Developer Api Key - https://tinypng.com/
     tinyApiKey = '',
     sourcemaps = require('gulp-sourcemaps'),
     bower = require('gulp-bower')
@@ -33,7 +34,6 @@ var banner = [
         ].join('');
 
 var config = {
-    sassDir: './sass',
     bowerDir: './bower_components'
 }
 
@@ -114,7 +114,7 @@ gulp.task('browserSync', function () {
     });
 });
 
-//kompresja tinypng
+//optimization 'tinypng'
 gulp.task('image', () =>
     gulp.src('src/img/*')
     .pipe(tinypng(tinyApiKey))
