@@ -25,13 +25,9 @@ bower_components
 ## Delete - create github repository
 build/img/*.*
 build/js/*.js
-<<<<<<< HEAD
 build/fonts/*.*
 build/css/*.css
 build/css/maps/*.*
 
 src/img/*.*
 src/js/*.js
-=======
-build/fonts/
->>>>>>> c5c04ff10e409a077afa2afd842ca4dfae54e59b
