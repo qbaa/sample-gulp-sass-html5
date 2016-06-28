@@ -1,5 +1,7 @@
 # Gulp Sass normalize.css Jquery HTML5 Boilerplate Font Awesome
 
+Inspired by [FireShell](http://getfireshell.com/) Fiercely quick front-end boilerplate and workflows.
+
 # Sass
 This is a sample project using the [7-1 architecture pattern](http://sass-guidelin.es/#architecture) and sticking to [Sass Guidelines](http://sass-guidelin.es) writing conventions.
 
