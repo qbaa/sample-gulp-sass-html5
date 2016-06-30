@@ -8,14 +8,14 @@ This is a sample project using the [7-1 architecture pattern](http://sass-guidel
 Each folder in `src/sass` of this project has its own `README.md` file to explain the purpose and add extra information. Be sure to browse the repository to see how it works.
 
 [Font Awesome](http://fontawesome.io/)
-Simple modification: [HTML5 Boilerplate](https://html5boilerplate.com/)
+[HTML5 Boilerplate](https://html5boilerplate.com/) - my simle modyfication.
 
 ## Installation
 
 1. Clone this repository.
 2. Go to local repository dir. Open console and run `npm install`.
 3. Run `bower install`.
-4. Run `gulp bower` and it copy dependencies from `bower_componets` to `src` and `build`.
+4. Run `gulp bower` and it copy dependencies from `bower_componets` to `src` and `app`.
 5. Run `gulp` and it will pull in all dependencies and compile.
 
 Optional:
