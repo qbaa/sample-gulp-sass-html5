@@ -17,7 +17,7 @@ var gulp = require('gulp'),
     //Developer Api Key - https://tinypng.com/
     tinyApiKey = '',
     sourcemaps = require('gulp-sourcemaps'),
-    bower = require('gulp-bower')
+    bower = require('gulp-bower'),
     package = require('./package.json');
 
 
@@ -34,7 +34,7 @@ var banner = [
         ].join('');
 
 var config = {
-    bowerDir: './bower_components'
+    bowerDir: './bower_components' 
 }
 
 
@@ -49,7 +49,7 @@ gulp.task('css', function () {
             browsers: ['> 1%', 'last 2 versions', 'IE 8'],
             cascade: false
         }))
-        .pipe(gulp.dest('build/css'))
+        .pipe(gulp.dest('app/css'))
         .pipe(cssnano())
         .pipe(rename({
             suffix: '.min'
@@ -58,7 +58,7 @@ gulp.task('css', function () {
             package: package
         }))
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('build/css'))
+        .pipe(gulp.dest('app/css'))
         .pipe(browserSync.reload({
             stream: true
         }));
@@ -71,7 +71,7 @@ gulp.task('js', function () {
         .pipe(header(banner, {
             package: package
         }))
-        .pipe(gulp.dest('build/js'))
+        .pipe(gulp.dest('app/js'))
         .pipe(uglify())
         .pipe(header(banner, {
             package: package
@@ -79,7 +79,7 @@ gulp.task('js', function () {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('build/js'))
+        .pipe(gulp.dest('app/js'))
         .pipe(browserSync.reload({
             stream: true,
             once: true
@@ -94,7 +94,7 @@ gulp.task('bower', ['copyFiles'], function () {
 gulp.task('copyFiles', function () {
     /*copy fontawesome*/
     gulp.src(config.bowerDir + '/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,eot,svg,otf}')
-        .pipe(gulp.dest('./build/fonts'));
+        .pipe(gulp.dest('./app/fonts'));
     gulp.src(config.bowerDir + '/font-awesome/scss/**/*')
         .pipe(gulp.dest('./src/sass/vendor/fontawesome'));
     /*copy normalize.css */
@@ -103,13 +103,13 @@ gulp.task('copyFiles', function () {
         .pipe(gulp.dest('./src/sass/vendor/'));
     /*copy jQuery */
     gulp.src(config.bowerDir + '/jquery/dist/jquery.min.js')
-        .pipe(gulp.dest('./build/js/vendor/'));
+        .pipe(gulp.dest('./app/js/vendor/'));
 })
 
 gulp.task('browserSync', function () {
     browserSync.init(null, {
         server: {
-            baseDir: "build"
+            baseDir: "app"
         }
     });
 });
@@ -118,7 +118,7 @@ gulp.task('browserSync', function () {
 gulp.task('image', () =>
     gulp.src('src/img/*')
     .pipe(tinypng(tinyApiKey))
-    .pipe(gulp.dest('build/img'))
+    .pipe(gulp.dest('app/img'))
 );
 
 gulp.task('bs-reload', function () {
@@ -128,5 +128,5 @@ gulp.task('bs-reload', function () {
 gulp.task('default', ['css', 'js', 'browserSync'], function () {
     gulp.watch('src/sass/**/*.scss', ['css']);
     gulp.watch('src/js/**/*.js', ['js']);
-    gulp.watch('build/*.html', ['bs-reload']);
+    gulp.watch('app/*.html', ['bs-reload']);
 })

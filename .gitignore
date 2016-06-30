@@ -23,11 +23,11 @@ node_modules
 bower_components
 
 ## Delete - create github repository
-build/img/*.*
-build/js/*.js
-build/fonts/*.*
-build/css/*.css
-build/css/maps/*.*
+app/img/*.*
+app/js/*.js
+app/fonts/*.*
+app/css/*.css
+app/css/maps/*.*
 
 src/img/*.*
 src/js/*.js
